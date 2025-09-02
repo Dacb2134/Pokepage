@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from '../../../services/pokemon.service';
 import { CommonModule } from '@angular/common';
+import { PokemonDetail } from '../../../models/pokemon';
 
 @Component({
   selector: 'app-pokemon-list-detail',
@@ -11,7 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./pokemon-list-detail.component.css']
 })
 export class PokemonListDetailComponent implements OnInit {
-  pokemon: any;
+  pokemon: PokemonDetail | null = null;
   loading = false;
 
   constructor(
@@ -28,7 +29,7 @@ export class PokemonListDetailComponent implements OnInit {
 
   fetchPokemonDetail(id: string): void {
     this.loading = true;
-    this.pokemonService.getPokemonDetail(id).subscribe(data => {
+    this.pokemonService.getPokemonDetail(id).subscribe((data: PokemonDetail) => {
       this.pokemon = data;
       this.loading = false;
     });

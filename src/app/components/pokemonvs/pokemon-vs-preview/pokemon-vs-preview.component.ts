@@ -39,7 +39,7 @@ export class PokemonVsPreviewComponent implements OnInit, OnDestroy {
   }
 
   goToVersus(): void {
-    this.router.navigate(['/versus']);
+    this.router.navigate(['/vs/versus']);
   }
 }
 

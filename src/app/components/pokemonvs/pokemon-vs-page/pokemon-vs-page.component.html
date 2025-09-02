@@ -1,0 +1,116 @@
+<!-- src/app/features/versus/pokemon-vs-page.component.html -->
+<div class="page">
+  <h1 class="title">Pokémon VS</h1>
+
+  <div class="selectors">
+    <div class="picker">
+      <label for="pokeA">Pokémon A</label>
+      <input id="pokeA" [formControl]="ctrlA" type="text" placeholder="Nombre o ID (ej. pikachu / 25)" />
+      <button (click)="loadA()" [disabled]="loadingA || !ctrlA.value">Elegir</button>
+      <div class="state" *ngIf="loadingA">Cargando...</div>
+      <div class="error" *ngIf="errorA">{{ errorA }}</div>
+    </div>
+
+    <div class="vs">VS</div>
+
+    <div class="picker">
+      <label for="pokeB">Pokémon B</label>
+      <input id="pokeB" [formControl]="ctrlB" type="text" placeholder="Nombre o ID (ej. charizard / 6)" />
+      <button (click)="loadB()" [disabled]="loadingB || !ctrlB.value">Elegir</button>
+      <div class="state" *ngIf="loadingB">Cargando...</div>
+      <div class="error" *ngIf="errorB">{{ errorB }}</div>
+    </div>
+  </div>
+
+  <div class="content" *ngIf="A || B">
+    <!-- Card A -->
+    <div class="card left" *ngIf="A as a">
+      <div class="header">
+        <img *ngIf="a.sprite" [src]="a.sprite" [alt]="a.name" />
+        <div>
+          <h2>#{{ a.id }} · {{ a.name | titlecase }}</h2>
+          <div class="types">
+            <span class="type" *ngFor="let t of a.types">{{ t | titlecase }}</span>
+          </div>
+          <div class="hw">
+            <span>Altura: {{ dmToM(a.height) }} m</span>
+            <span>Peso: {{ hgToKg(a.weight) }} kg</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat" *ngFor="let s of a.stats">
+          <span class="label">{{ s.name | titlecase }}</span>
+          <div class="bar"><div class="fill" [style.width.%]="statToPercent(s.base)"></div></div>
+          <span class="value">{{ s.base }}</span>
+        </div>
+        <div class="bst">BST: {{ totalStats(a.stats) }}</div>
+      </div>
+
+      <div class="abilities">
+        <strong>Habilidades:</strong>
+        <span *ngFor="let ab of a.abilities; let last = last">
+          {{ ab | titlecase }}{{ !last ? ', ' : '' }}
+        </span>
+      </div>
+
+      <div class="effectiveness" *ngIf="effAB !== null">
+        <strong>Efectividad contra rival:</strong>
+        <span [class]="classForMultiplier(effAB)">x{{ effAB | number : '1.0-2' }}</span>
+        <div class="pertype" *ngIf="effABPerType.length">
+          <div class="chip" *ngFor="let e of effABPerType">
+            {{ e.attackerType | titlecase }} → x{{ e.multiplier | number : '1.0-2' }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Card B -->
+    <div class="card right" *ngIf="B as b">
+      <div class="header">
+        <img *ngIf="b.sprite" [src]="b.sprite" [alt]="b.name" />
+        <div>
+          <h2>#{{ b.id }} · {{ b.name | titlecase }}</h2>
+          <div class="types">
+            <span class="type" *ngFor="let t of b.types">{{ t | titlecase }}</span>
+          </div>
+          <div class="hw">
+            <span>Altura: {{ dmToM(b.height) }} m</span>
+            <span>Peso: {{ hgToKg(b.weight) }} kg</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat" *ngFor="let s of b.stats">
+          <span class="label">{{ s.name | titlecase }}</span>
+          <div class="bar"><div class="fill" [style.width.%]="statToPercent(s.base)"></div></div>
+          <span class="value">{{ s.base }}</span>
+        </div>
+        <div class="bst">BST: {{ totalStats(b.stats) }}</div>
+      </div>
+
+      <div class="abilities">
+        <strong>Habilidades:</strong>
+        <span *ngFor="let ab of b.abilities; let last = last">
+          {{ ab | titlecase }}{{ !last ? ', ' : '' }}
+        </span>
+      </div>
+
+      <div class="effectiveness" *ngIf="effBA !== null">
+        <strong>Efectividad contra rival:</strong>
+        <span [class]="classForMultiplier(effBA)">x{{ effBA | number : '1.0-2' }}</span>
+        <div class="pertype" *ngIf="effBAPerType.length">
+          <div class="chip" *ngFor="let e of effBAPerType">
+            {{ e.attackerType | titlecase }} → x{{ e.multiplier | number : '1.0-2' }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="hint">Tip: escribe nombre o ID y pulsa “Elegir”.</p>
+</div>

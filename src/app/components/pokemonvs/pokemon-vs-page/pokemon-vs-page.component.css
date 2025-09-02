@@ -1,0 +1,176 @@
+/* src/app/features/versus/pokemon-vs-page.component.css */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.selectors {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  gap: 1rem;
+  align-items: end;
+  margin-bottom: 1rem;
+}
+
+.picker label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+.picker input {
+  width: 100%;
+  padding: .6rem .8rem;
+  border: 1px solid #e5e7eb;
+  border-radius: .75rem;
+}
+
+.picker button {
+  margin-top: .5rem;
+  padding: .5rem .9rem;
+  border: 0;
+  background: #0ea5e9;
+  color: #fff;
+  border-radius: .75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.state { margin-top: .25rem; color: #374151; font-size: .9rem; }
+.error { margin-top: .25rem; color: #dc2626; font-weight: 600; }
+
+.vs {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  gap: 1rem;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+}
+
+.card {
+  border: 1px solid #eef2f7;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,.05);
+}
+
+.header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.header img {
+  width: 120px;
+  height: 120px;
+  image-rendering: pixelated;
+}
+
+.types {
+  display: flex;
+  gap: .5rem;
+  margin-top: .25rem;
+  flex-wrap: wrap;
+}
+.type {
+  background: #f1f5f9;
+  border-radius: 999px;
+  padding: .2rem .6rem;
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.hw {
+  display: flex;
+  gap: 1rem;
+  color: #4b5563;
+  font-size: .9rem;
+  margin-top: .25rem;
+}
+
+.stats { margin-top: 1rem; }
+.stat {
+  display: grid;
+  grid-template-columns: 120px 1fr 50px;
+  gap: .5rem;
+  align-items: center;
+  margin: .35rem 0;
+}
+.label { font-weight: 600; }
+.bar {
+  height: 10px;
+  background: #f1f5f9;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.fill {
+  height: 100%;
+  background: #22c55e;
+}
+.value { text-align: right; }
+.bst {
+  margin-top: .5rem;
+  font-weight: 800;
+}
+
+.abilities { margin-top: .75rem; }
+
+.effectiveness { margin-top: .75rem; }
+.mul {
+  display: inline-block;
+  margin-left: .5rem;
+  padding: .1rem .5rem;
+  border-radius: .5rem;
+  font-weight: 800;
+}
+.mul.neutral { background: #f1f5f9; }
+.mul.bad { background: #fee2e2; }
+.mul.zero { background: #fecaca; text-decoration: line-through; }
+.mul.ok { background: #e0f2fe; }
+.mul.good { background: #dcfce7; }
+.mul.great { background: #bbf7d0; }
+
+.pertype {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin-top: .5rem;
+}
+.chip {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  padding: .2rem .5rem;
+  border-radius: .5rem;
+  font-size: .85rem;
+}
+
+.hint {
+  margin-top: 1rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .selectors { grid-template-columns: 1fr; }
+  .content { grid-template-columns: 1fr; }
+  .divider { display: none; }
+}

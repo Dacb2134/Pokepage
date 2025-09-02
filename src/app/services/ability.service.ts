@@ -18,4 +18,5 @@ export class AbilityService {
   getAbilityDetail(nameOrId: string | number): Observable<any> {
     return this.api.get(`ability/${nameOrId}`);
   }
+  
 }

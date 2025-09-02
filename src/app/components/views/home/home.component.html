@@ -1,0 +1,47 @@
+<div class="home-container">
+  <h1>Bienvenido a la Pokédex</h1>
+  <p>Explora Pokémon, tipos, habilidades y más.</p>
+
+  <a routerLink="/pokemon-list" class="btn">
+    <mat-icon>catching_pokemon</mat-icon>
+    Ver lista de Pokémon
+  </a>
+
+  <!-- 🔍 Buscador rápido -->
+  <div class="search-section">
+    <h2><mat-icon>search</mat-icon> Buscar Pokémon</h2>
+    <input type="text" placeholder="Ej. Pikachu, Bulbasaur..." />
+    <button class="btn"><mat-icon>travel_explore</mat-icon> Buscar</button>
+  </div>
+
+  <!-- 🌟 Pokémon destacados -->
+  
+
+  <!-- 🧬 Categorías populares -->
+  <div class="categories-section">
+    <h2><mat-icon>category</mat-icon> Categorías Populares</h2>
+    <div class="category-grid">
+      <a routerLink="/types" class="category-card">
+        <mat-icon>bolt</mat-icon>
+        Tipos
+      </a>
+      <a routerLink="/abilities" class="category-card">
+        <mat-icon>psychology</mat-icon>
+        Habilidades
+      </a>
+      <a routerLink="/regions" class="category-card">
+        <mat-icon>public</mat-icon>
+        Regiones
+      </a>
+    </div>
+  </div>
+
+  <!-- 📊 Estadísticas generales -->
+  
+
+  <!-- 🧾 Footer -->
+  <footer class="footer">
+    <p>Hecho con <mat-icon>favorite</mat-icon> por Diego Constante Benavides</p>
+    <small>Datos obtenidos de la <a href="https://pokeapi.co/" target="_blank">PokéAPI</a></small>
+  </footer>
+</div>

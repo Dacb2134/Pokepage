@@ -1,0 +1,47 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  text-align: center;
+  background: linear-gradient(135deg, #f44336, #ffeb3b);
+  color: #212121;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.home-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Pokemon Solid', sans-serif;
+  letter-spacing: 2px;
+}
+
+.home-container p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #1976d2;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #1565c0;
+}
+
+.mat-icon {
+  font-size: 1.5rem;
+}

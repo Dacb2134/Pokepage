@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('assets/images/fondo2.jpg');
+  background-size: cover;     /* Para que se ajuste */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+}

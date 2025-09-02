@@ -1,0 +1,100 @@
+/* Contenedor principal */
+.pokemon-list-container {
+  background: rgba(255, 255, 255, 0.85); 
+  border: 2px solid #cc0000;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  font-family: 'Verdana', sans-serif;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+
+/* Título */
+.pokemon-list-container h2 {
+  text-align: center;
+  color: #cc0000;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px #fff;
+}
+
+/* Lista de Pokémon */
+.pokemon-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+/* Cada ítem */
+.pokemon-list li {
+  background-color: #fff;
+  border: 2px solid #999;
+  border-radius: 8px;
+  padding: 0.5rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.pokemon-list li:hover {
+  transform: scale(1.05);
+  border-color: #cc0000;
+}
+
+/* Imagen del Pokémon */
+.pokemon-list img {
+  display: block;
+  margin: 0 auto 0.5rem;
+  image-rendering: pixelated;
+}
+
+/* Nombre del Pokémon */
+.pokemon-list span {
+  font-weight: bold;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Indicador de carga */
+.loading-indicator {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+}
+
+/* Mensaje vacío */
+.empty-message {
+  text-align: center;
+  color: #999;
+  font-size: 1rem;
+}
+
+.refresh-button {
+  background-color: #cc0000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.refresh-button:hover {
+  background-color: #e60000;
+}
+
+mat-icon {
+  font-size: 20px;
+}

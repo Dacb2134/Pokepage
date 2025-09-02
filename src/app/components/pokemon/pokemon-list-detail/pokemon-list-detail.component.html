@@ -1,0 +1,38 @@
+<section class="pokemon-detail-container" *ngIf="pokemon">
+  <div class="pokemon-card">
+    <h2 class="pokemon-name">{{ pokemon.name | titlecase }}</h2>
+    <img
+      [src]="pokemon.sprites.front_default"
+      [alt]="pokemon.name"
+      class="pokemon-image"
+    />
+
+    <div class="pokemon-info">
+      <p><strong>Altura:</strong> {{ pokemon.height }} dm</p>
+      <p><strong>Peso:</strong> {{ pokemon.weight }} hg</p>
+
+      <div class="info-group">
+        <strong>Tipos:</strong>
+        <span *ngFor="let type of pokemon.types" class="type-badge {{ type.type.name }}">
+          {{ type.type.name | titlecase }}
+        </span>
+      </div>
+
+      <div class="info-group">
+        <strong>Habilidades:</strong>
+        <span *ngFor="let ability of pokemon.abilities" class="ability-badge">
+          {{ ability.ability.name | titlecase }}
+        </span>
+      </div>
+
+      <div class="info-group">
+        <strong>Stats:</strong>
+        <ul class="stats-list">
+          <li *ngFor="let stat of pokemon.stats">
+            {{ stat.stat.name | titlecase }}: {{ stat.base_stat }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

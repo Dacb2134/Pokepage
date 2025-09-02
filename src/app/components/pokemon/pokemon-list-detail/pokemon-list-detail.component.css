@@ -1,0 +1,100 @@
+/* Contenedor principal: deja ver el fondo global */
+.pokemon-detail-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background: transparent; /* Quitamos el gradiente sólido para mostrar fondo global */
+  font-family: 'Verdana', sans-serif;
+  min-height: 100vh; /* Para ocupar toda la pantalla */
+  box-sizing: border-box;
+}
+
+/* Tarjeta del Pokémon */
+.pokemon-card {
+  background-color: rgba(255, 255, 255, 0.9); /* ligeramente transparente */
+  border: 3px solid #cc0000;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* Nombre del Pokémon */
+.pokemon-name {
+  font-size: 2rem;
+  color: #cc0000;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px #fff;
+}
+
+/* Imagen del Pokémon */
+.pokemon-image {
+  width: 120px;
+  height: 120px;
+  image-rendering: pixelated;
+  margin-bottom: 1rem;
+}
+
+/* Información general */
+.pokemon-info p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+.info-group {
+  margin-top: 1rem;
+}
+
+/* Badges por tipo */
+.type-badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  margin: 0.3rem;
+  border-radius: 12px;
+  font-weight: bold;
+  color: #fff;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+/* Tematizado por tipo */
+.type-badge.fire { background-color: #f08030; }
+.type-badge.water { background-color: #6890f0; }
+.type-badge.grass { background-color: #78c850; }
+.type-badge.electric { background-color: #f8d030; }
+.type-badge.psychic { background-color: #f85888; }
+.type-badge.ice { background-color: #98d8d8; }
+.type-badge.dragon { background-color: #7038f8; }
+.type-badge.dark { background-color: #705848; }
+.type-badge.fairy { background-color: #ee99ac; }
+
+/* Badges de habilidades */
+.ability-badge {
+  display: inline-block;
+  background-color: #eee;
+  border: 1px solid #999;
+  border-radius: 8px;
+  padding: 0.3rem 0.6rem;
+  margin: 0.3rem;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+/* Stats */
+.stats-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
+.stats-list li {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.4rem;
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}

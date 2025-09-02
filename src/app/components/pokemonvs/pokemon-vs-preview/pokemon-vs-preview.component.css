@@ -1,0 +1,42 @@
+/* vs-preview.component.css */
+.vs-preview {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+
+  /* Imagen de fondo */
+  background-image: url('assets/images/vs-background.jpg');
+  background-size: 25%; /* Zoom in */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.pokemon {
+  width: 96px;
+  height: 96px;
+  transition: opacity 0.5s ease;
+}
+
+.vs-icon {
+  width: 64px;
+  height: 64px;
+}
+
+/* Estilos para los Pokémon */
+.pokemon {
+  width: 120px;
+  height: auto;
+  z-index: 2;
+}
+
+/* Posicionamiento específico */
+.left {
+  transform: scaleX(-1); /* Voltea horizontalmente */
+}
+
+

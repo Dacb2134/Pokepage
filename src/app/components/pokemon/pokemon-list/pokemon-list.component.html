@@ -1,0 +1,31 @@
+<section class="pokemon-list-container">
+  <h2>Lista de Pokémon</h2>
+
+  <ng-container *ngIf="loading; else listTemplate">
+    <p class="loading-indicator">Cargando Pokémon...</p>
+  </ng-container>
+  <button class="refresh-button" (click)="refreshPokemonList()">
+  <mat-icon>refresh</mat-icon> Actualizar Pokémon
+ </button>
+
+
+  <ng-template #listTemplate>
+    <ul *ngIf="pokemonList.length > 0; else emptyMessage" class="pokemon-list">
+      <li *ngFor="let pokemon of pokemonList" (click)="verDetalle(pokemon)">
+  <img
+    [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + getIdFromUrl(pokemon.url) + '.png'"
+    [alt]="pokemon.name"
+    width="64"
+    height="64"
+  />
+  <span>{{ pokemon.name | titlecase }}</span>
+</li>
+
+    </ul>
+  </ng-template>
+   
+
+  <ng-template #emptyMessage>
+    <p class="empty-message">No se encontraron Pokémon.</p>
+  </ng-template>
+</section>

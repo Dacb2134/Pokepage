@@ -18,6 +18,14 @@ export const routes: Routes = [
         (m) => m.pokemonvsroutes
       ),
   },
+  //search
+  {
+    path: 'search',
+    loadChildren: () =>
+      import('./components/search/search.routes').then(
+        (m) => m.searchroutes
+      ),
+  },
   ...views,
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: 'not-found' },

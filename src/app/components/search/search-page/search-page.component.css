@@ -1,0 +1,13 @@
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.result img {
+  max-width: 150px;
+}
+
+.error {
+  color: red;
+}

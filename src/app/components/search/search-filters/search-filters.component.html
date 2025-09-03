@@ -1,4 +1,18 @@
-<!-- Filters for search can be added here -->
 <div class="filters">
-  <!-- Placeholder for future filter options -->
+  <input
+    type="text"
+    name="type"
+    placeholder="Tipo"
+    [(ngModel)]="filters.type"
+    (ngModelChange)="onChange()"
+    [ngModelOptions]="{standalone: true}"
+  />
+  <input
+    type="text"
+    name="ability"
+    placeholder="Habilidad"
+    [(ngModel)]="filters.ability"
+    (ngModelChange)="onChange()"
+    [ngModelOptions]="{standalone: true}"
+  />
 </div>

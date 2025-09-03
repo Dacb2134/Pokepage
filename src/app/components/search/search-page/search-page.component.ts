@@ -3,6 +3,7 @@ import { CommonModule, TitleCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PokemonService } from '../../../services/pokemon.service';
 import { SearchFiltersComponent } from '../search-filters/search-filters.component';
+import { PokemonSummary } from '../../../models/pokemon';
 
 @Component({
   selector: 'app-search-page',
@@ -13,27 +14,32 @@ import { SearchFiltersComponent } from '../search-filters/search-filters.compone
 })
 export class SearchPageComponent {
   query: string = '';
-  result: any;
+  filters: { type?: string; ability?: string } = {};
+  results: PokemonSummary[] | null = null;
   error?: string;
 
   constructor(private pokemonService: PokemonService) {}
 
-  onSubmit(): void {
-    if (!this.query) {
-      this.result = null;
-      return;
-    }
+  onFiltersChange(filters: { type?: string; ability?: string }): void {
+    this.filters = filters;
+  }
 
-    this.pokemonService.getPokemonDetail(this.query.toLowerCase()).subscribe({
+  onSubmit(): void {
+    const params = {
+      name: this.query ? this.query.toLowerCase() : undefined,
+      type: this.filters.type,
+      ability: this.filters.ability,
+    };
+
+    this.pokemonService.searchPokemon(params).subscribe({
       next: (data) => {
-        this.result = data;
-        this.error = undefined;
+        this.results = data.results;
+        this.error = data.results.length ? undefined : 'No se encontraron resultados';
       },
       error: () => {
-        this.result = null;
-        this.error = 'Pokémon no encontrado';
+        this.results = null;
+        this.error = 'Error en la búsqueda';
       }
     });
   }
 }
-
